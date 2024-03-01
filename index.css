@@ -9,9 +9,34 @@ body {
 input {
   color: #432000;
   background-color: #dce1eb;
+  display: block;
+  margin-bottom: 20;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10 60;
 }
 
 button {
   color: #fdfdfd;
   background-color: #ac485a;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10 96;
+}
+iframe {
+  width: 180;
+  height: 200;
+  border: 0;
+  display: block;
+}
+
+#cat-pic {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
