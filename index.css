@@ -9,34 +9,34 @@ body {
 input {
   color: #432000;
   background-color: #dce1eb;
-  display: block;
-  margin-bottom: 20;
-  margin-left: auto;
-  margin-right: auto;
+  border: 0;
+  padding: 15;
+  border-radius: 10px;
+  font-size: 20;
   text-align: center;
-  padding: 10 60;
+  font-family: "Rubik", sans-serif;
+  margin: 10 0;
 }
 
 button {
   color: #fdfdfd;
   background-color: #ac485a;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  box-sizing: border-box;
-  padding: 10 96;
-}
-iframe {
-  width: 180;
-  height: 200;
   border: 0;
-  display: block;
+  padding: 15;
+  border-radius: 10px;
+  font-size: 20;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+}
+img {
+  width: 200;
+  height: 200;
+  margin: auto;
 }
 
-#cat-pic {
-  margin-bottom: 0;
+.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  max-width: 320;
+  margin: 50px auto;
 }
