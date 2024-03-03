@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Rubik", sans-serif;
-  background-color: #eef0f4;
+  background-color: #ffebf0;
 }
 
 input {
@@ -39,4 +39,8 @@ img {
   flex-direction: column;
   max-width: 320;
   margin: 50px auto;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
