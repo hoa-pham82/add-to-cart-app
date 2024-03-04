@@ -3,8 +3,10 @@ import {
   getDatabase,
   ref,
   push,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-import { clearInputField, addListItem } from "../function.js";
+
+import { clearInputField, addListItem, clearListItem } from "../function.js";
 
 const appSettings = {
   databaseURL:
@@ -17,17 +19,26 @@ const foodInDB = ref(database, "foods");
 
 const inputEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
-const foodList = document.getElementById("food-list");
+const foodListEl = document.getElementById("food-list");
 
+// Get data from database
+onValue(foodInDB, (snapshot) => {
+  let foodArr = Object.values(snapshot.val());
+
+  // clear the showing list
+  clearListItem(foodListEl);
+
+  // Get items from database
+  for (let i = 0; i < foodArr.length; i++) {
+    addListItem(foodListEl, foodArr[i]);
+  }
+});
+
+// On click event
 addButtonEl.addEventListener("click", () => {
   let inputVal = inputEl.value;
   push(foodInDB, inputVal);
   console.log(`${inputVal} added to database`);
 
-  // add food to the list of foods
-  addListItem(foodList, inputVal);
-  console.log(`${inputVal} added to the list`);
-
-  // Set the input field to be empty when pressing button
   clearInputField(inputEl);
 });
