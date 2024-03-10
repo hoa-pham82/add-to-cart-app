@@ -21,16 +21,17 @@ const inputEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
 const foodListEl = document.getElementById("food-list");
 
-// Get data from database
+// Get data from database and show them on the screen
 onValue(foodInDB, (snapshot) => {
-  let foodArr = Object.values(snapshot.val());
+  let foodArr = Object.entries(snapshot.val());
 
   // clear the showing list
   clearListItem(foodListEl);
 
   // Get items from database
   for (let i = 0; i < foodArr.length; i++) {
-    addListItem(foodListEl, foodArr[i]);
+    let currentItem = foodArr[i];
+    addListItem(foodListEl, currentItem);
   }
 });
 
@@ -38,7 +39,7 @@ onValue(foodInDB, (snapshot) => {
 addButtonEl.addEventListener("click", () => {
   let inputVal = inputEl.value;
   push(foodInDB, inputVal);
-  console.log(`${inputVal} added to database`);
+  console.log(`${inputVal} is added to database!`);
 
   clearInputField(inputEl);
 });
