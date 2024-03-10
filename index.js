@@ -23,15 +23,19 @@ const foodListEl = document.getElementById("food-list");
 
 // Get data from database and show them on the screen
 onValue(foodInDB, (snapshot) => {
-  let foodArr = Object.entries(snapshot.val());
+  if (snapshot.exists()) {
+    let foodArr = Object.entries(snapshot.val());
 
-  // clear the showing list
-  clearListItem(foodListEl);
+    // clear the showing list
+    clearListItem(foodListEl);
 
-  // Get items from database
-  for (let i = 0; i < foodArr.length; i++) {
-    let currentItem = foodArr[i];
-    addListItem(foodListEl, currentItem);
+    // Get items from database
+    for (let i = 0; i < foodArr.length; i++) {
+      let currentItem = foodArr[i];
+      addListItem(foodListEl, currentItem);
+    }
+  } else {
+    foodListEl.innerHTML = "No items here... yet!";
   }
 });
 
